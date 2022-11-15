@@ -87,3 +87,23 @@ func TestMultipleHellosWithDuplicates(t *testing.T) {
 		}
 	}
 }
+
+func TestAddFormat(t *testing.T) {
+	initialLengthOfFormats := len(formats)
+
+	AddFormat("New format")
+
+	newLengthOfFormats := len(formats)
+
+	if newLengthOfFormats != initialLengthOfFormats + 1 {
+		t.Fatal("Add new format failed.")
+	}
+}
+
+func TestAddFormatEmpty(t *testing.T) {
+	err := AddFormat("")
+
+	if err == nil {
+		t.Fatal("Not receiving an error is unexpected.")
+	}
+}

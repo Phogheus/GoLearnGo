@@ -70,6 +70,8 @@ func handleGreeting(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// Discovered at https://benhoyt.com/writings/go-routing/#shiftpath
+// Original source at https://blog.merovius.de/posts/2017-06-18-how-not-to-use-an-http-router/
 func shiftPath(p string) (head, tail string) {
     p = path.Clean("/" + p) // Prepend "/" to 'p' and clean - Clean will ensure proper formatting, allowing a "//" to become "/"
     i := strings.Index(p[1:], "/") + 1 // Find the next index of "/" after the prepended one (the trail)
