@@ -38,6 +38,16 @@ func MultipleHellos(names []string) (map[int]string, error) {
 	return messages, nil
 }
 
+func AddFormat(newFormat string) error {
+	if newFormat == "" {
+		return errors.New("Parameter 'newFormat' cannot be empty.")
+	}
+
+	formats = append(formats, newFormat)
+
+	return nil;
+}
+
 // This function is run auto-magically after "all the variable declarations in the package have evaluated 
 // their initializers, and those are evaluated only after all the imported packages have been initialized."
 // See: https://go.dev/doc/effective_go#init
